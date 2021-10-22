@@ -1,0 +1,25 @@
+{
+  "name": "ebooks-back-end",
+  "version": "1.0.0",
+  "description": "ebooks back-end",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annecmarinho/ebooks-back-end.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annecmarinho/ebooks-back-end/issues"
+  },
+  "homepage": "https://github.com/annecmarinho/ebooks-back-end#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14"
+  }
+}
