@@ -1,6 +1,10 @@
 const express = require('express');
 const routes = express.Router();
 
+const BookController = require("./controllers/BookController");
+const UserController = require("./controllers/UserController");
+
+
 const usuarios = [
   {
       id: 0,
@@ -152,70 +156,21 @@ const livros = [
 
   ];
 
-routes.get("/user", (req, res) => {
-    const query = req.query;
-    consoçe.log(query);
+routes.get("/user/:user_id", UserController.getById);
 
-    res.status(200).json("usuarios");
-});
+routes.post("/users", UserController.create);
 
-routes.post("/user", (req, res) => {
-    const newUser = req.body
+routes.put("/users/:user_id",UserController.update);
 
-    usuarios.push(newUser);
+routes.delete("/users/:user_id",UserController.update);
 
-    res.status(200).json({ message: "Sucess" });
-});
+routes.get("/books/:book_id",LivroController.getById);
 
-routes.put("/user:userId", (req, res) => {
-    const { userId } = req.params;
-    const newFIelds = req.body;
+routes.post("/books",LivroController.create);
 
-    let selectedIndex = index;
-    let selected = usuarios.find((user, index) => {
-        selectedIndex =index;
-        return user.id == userId;
-    });
-    selected = {...selected, ...newFIelds};
-    
-    usuarios[selectedIndex] = selected;
+routes.put("/books/:book_id",LivroController.update);
 
-    res.status(200).json({ message: "Sucess" });
-});
-
-
-
-
-routes.get("/books", (req, res) => {
-    const query = req.query;
-    consoçe.log(query);
-
-    res.status(200).json("livros");
-});
-
-routes.post("/books", (req, res) => {
-    const newLivro = req.body
-
-    livros.push(newLivro);
-
-    res.status(200).json({ message: "Sucess" });
-});
-
-routes.put("/books:livroId", (req, res) => {
-    const { livroId } = req.params;
-    const newFIelds = req.body;
-
-    let selectedIndex = index;
-    let selected = livros.find((livro, index) => {
-        selectedIndex =index;
-        return livro.id == livroId;
-    });
-    selected = {...selected, ...newFIelds};
-    
-    livros[selectedIndex] = selected;
-
-    res.status(200).json({ message: "Sucess" });
-});
+routes.delete("/books/:book_id",LivroController.delete)
 
 
 
