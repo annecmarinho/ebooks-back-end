@@ -1,24 +1,34 @@
 const connection = require("../database/connection");
 
 module.exports = {
-  async create(userBook) {
+  async create(book_user) {
+
     const result = await connection("book_user")
-      .insert(userBook);
+      .insert(book_user
+  );
     return result;
   },
 
-  async getByUserId(user_id){
+  async getById(user_id,book_id){
     const result = await connection("book_user")
-      .where({user_id})
+      .where({ user_id, book_id})
       .select("*");
     return result;
   },
+
+  async updateById(book_id, userBook){
+    const result = await connection("user")
+      .where({book_id})
+      .update(book_user
+  );
+    return result;
+  },
   
-  async deleteById(user_id, book_id){
+  async deleteById(book_id){
     const result = await connection("book_user")
       .where({user_id})
       .where({book_id})
-        .delete();
+      .delete();
     return result;
   }
 }
