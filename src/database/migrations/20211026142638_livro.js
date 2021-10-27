@@ -2,8 +2,9 @@
 exports.up = function(knex) {
     return knex.schema.createTable('livro', function(table){
         table.string('book_id').primary().notNullable();
-        table.string('título').primary().notNullable();
-        table.string('autor').primary().notNullable();
+        table.string('título').notNullable();
+        table.string('autor').notNullable();
+        table.string('autor').notNullable();
 
      });
   

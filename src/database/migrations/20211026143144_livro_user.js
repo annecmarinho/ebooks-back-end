@@ -7,7 +7,7 @@ exports.up = function(knex) {
             .inTable("livro")
             .onDelete("cascade");
 
-        table.string('user_id').primary().notNullable();
+        table.string('user_id').notNullable();
         table
             .foreign("user_id")
             .references("user_id")
