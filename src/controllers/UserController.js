@@ -1,9 +1,14 @@
 const UserModel = require("../models/User");
+const {v4: uuidv4 }= require("../database/connection");
+const { getById } = require("../models/Book");
 
 module.exports = {
     async create(request,response){
        try {
            const newUser = request.body;
+
+           const user_id = uuidv4();
+           newUser.user_id=user_id;
 
            const result = await UserModel.create(newUser);
 
@@ -16,6 +21,9 @@ module.exports = {
 
        }
     },
+
+    
+
 
     async update(request,response){
         try{

@@ -1,9 +1,14 @@
 const BookModel = require("../models/Book");
+const {v4: uuidv4 }= require("../database/connection");
 
 module.exports = {
     async create(request,response){
        try {
            const newBook = request.body;
+
+           const book_id = uuidv4();
+           book.book_id=book_id;
+       
 
            const result = await BookModel.create(newBook);
 
@@ -16,6 +21,7 @@ module.exports = {
 
        }
     },
+   
 
     async update(request,response){
         try{

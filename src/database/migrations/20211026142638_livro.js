@@ -5,10 +5,8 @@ exports.up = function(knex) {
         table.string('título').notNullable();
         table.string('autor').notNullable();
         table.string('capa').notNullable();
-        table.string('descrição').notNullable();
-        
-
-     });
+        table.string('sinopse').notNullable();
+       });
   
 };
 
