@@ -5,10 +5,10 @@ exports.up = function(knex) {
    table.string('nome').notNullable();
    table.string('email').notNullable();
    table.string('endereço').notNullable();
-   table.string('número').notNullable();
+   table.integer('número').notNullable();
    table.string('estado').notNullable();
    table.string('cidade').notNullable();
-   table.string('descrição').notNullable();
+  //table.string('descrição').notNullable();
 
   });
 };

@@ -2,16 +2,17 @@ const connection = require("../database/connection");
 
 module.exports = {
   async create(bookUser) {
-
     const result = await connection("book_user")
       .insert(bookUser);
     return result;
   },
 
-  async getById(user_id){
+  async getByUser(user_id){
+
     const result = await connection("book_user")
-      .where({ user_id})
-      .select("*");
+      .innerJoin("book", "book_user.book_id", "book.book_id")
+      .where({"book_user.user_id": user_id})
+      .select(["book_user.*", "book.título", "book.autor"])
     return result;
   },
 

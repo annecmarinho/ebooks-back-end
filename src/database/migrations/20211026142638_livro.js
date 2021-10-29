@@ -4,8 +4,8 @@ exports.up = function(knex) {
         table.string('book_id').primary().notNullable();
         table.string('título').notNullable();
         table.string('autor').notNullable();
-        table.string('capa').notNullable();
         table.string('sinopse').notNullable();
+        table.string('categoria').notNullable();
        });
   
 };

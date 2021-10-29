@@ -1,9 +1,9 @@
 const connection = require("../database/connection");
 
 
+
 module.exports = {
   async create(user) {
-  
      const result = await connection("user").insert(user);
       result;
   },
@@ -11,7 +11,8 @@ module.exports = {
   async getById(user_id){
     const result = await connection("user")
       .where({user_id})
-      .select("*");
+      .select("*")
+      .first();
     return result;
   },
  
