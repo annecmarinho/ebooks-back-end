@@ -13,6 +13,7 @@ module.exports = {
       .where({user_id})
       .select("*")
       .first();
+      console.log(user_id);
     return result;
   },
  

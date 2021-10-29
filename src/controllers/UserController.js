@@ -24,14 +24,10 @@ module.exports = {
 
     async getById(request, response) {
         try {
-            const newUser = request.body;
+            const { user_id } = request.params;
+            const result = await UserModel.getById(user_id);
 
-            const user_id = uuidv4();
-            newUser.user_id = user_id;
-
-            const result = await UserModel.getById(newUser);
-
-            return response.status(200).json({ user_id: result });
+            return response.status(200).json(result);
 
 
         } catch (error) {
@@ -49,7 +45,7 @@ module.exports = {
             const { user_id } = request.params;
             const newUser = request.body;
 
-            await BookModel.updateById(user_id, newUser);
+            await UserModel.updateById(user_id, newUser);
 
             return response.status(200).json({ notification: "User update sucessfully" });
 
@@ -66,7 +62,7 @@ module.exports = {
         try {
             const { user_id } = request.params;
 
-            await BookModel.deleteById(user_id);
+            await UserModel.deleteById(user_id);
 
             return response.status(200).json({ notification: "User deleted sucessfully" });
 

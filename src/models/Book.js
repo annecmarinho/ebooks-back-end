@@ -25,7 +25,7 @@ module.exports = {
   },
   
   async deleteById(book_id, book){
-    const result = await connection("livro")
+    const result = await connection("book")
       .where({book_id})
       .delete();
     return result;

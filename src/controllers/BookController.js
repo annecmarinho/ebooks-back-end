@@ -24,13 +24,9 @@ module.exports = {
     },
     async getById(request, response) {
         try {
-            const newBook = request.body;
+            const { book_id } = request.params;
 
-            const book_id = uuidv4();
-            book.book_id = book_id;
-
-
-            const result = await BookModel.getById(newBook);
+            const result = await BookModel.getById(book_id);
 
             return response.status(200).json({ book_id: result });
 
