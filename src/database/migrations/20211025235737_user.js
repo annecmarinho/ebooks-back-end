@@ -8,7 +8,8 @@ exports.up = function(knex) {
    table.integer('número').notNullable();
    table.string('estado').notNullable();
    table.string('cidade').notNullable();
-  //table.string('descrição').notNullable();
+   table.string('descricao').notNullable();
+   table.string('firebase_id').notNullable();
 
   });
 };

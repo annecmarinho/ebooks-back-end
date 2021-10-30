@@ -4,11 +4,14 @@ module.exports = {
     create: celebrate({
         [Segments.BODY]: Joi.object().keys({
             nome: Joi.string().required(),
-            email: Joi.string().required(),
+            email: Joi.string().email().required(),
+            password: Joi.string().min(6).required(),
             endereço: Joi.string().required(),
-            número: Joi.string().required(),
+            número: Joi.number().integer().required(),
             cidade: Joi.string().required(),
             estado: Joi.string().required(),
+            descricao: Joi.string().required(),
+
         }),
     }),
     getById: celebrate({
@@ -24,9 +27,10 @@ module.exports = {
             nome: Joi.string().optional(),
             email: Joi.string().optional(),
             endereço: Joi.string().optional(),
-            número: Joi.string().optional(),
+            número: Joi.number().integer().optional(),
             cidade: Joi.string().optional(),
             estado: Joi.string().optional(),
+            descricao: Joi.string().optional(),
         })
         .min(1),
     }),
