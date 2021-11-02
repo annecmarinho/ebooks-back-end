@@ -13,8 +13,16 @@ module.exports = {
       .where({user_id})
       .select("*")
       .first();
-      console.log(user_id);
     return result;
+  },
+
+  async getByFields(field){
+    const result = await connection("user")
+      .where(field)
+      .select("*")
+      .first();
+    return result;
+
   },
  
   async updateById(user_id, user){
