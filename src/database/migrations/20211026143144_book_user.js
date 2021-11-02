@@ -1,13 +1,13 @@
 exports.up = function(knex) {
-    return knex.schema.createTable('livro_user', function(table){
+    return knex.schema.createTable('book_user', function(table){
         table.string('book_id').notNullable();
         table
             .foreign("book_id")
             .references("book_id")
-            .inTable("livro")
+            .inTable("book")
             .onDelete("cascade");
 
-        table.string('user_id').primary().notNullable();
+        table.string('user_id').notNullable();
         table
             .foreign("user_id")
             .references("user_id")
@@ -18,5 +18,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable("livro_user");
+    return knex.schema.dropTable("book_user");
 };
