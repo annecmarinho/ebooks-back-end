@@ -8,20 +8,13 @@ module.exports = {
             sinopse: Joi.string().required(),
             categoria: Joi.string().required(),
         }),
-        [Segments.HEADERS]: Joi.object().keys({
-            authorization: Joi.string().required(),
-        })
-        .unknown(),
+
     }),
 
-    getById: celebrate({
+    getBooks: celebrate({
         [Segments.PARAMS]: Joi.object().keys({
-            book_id: Joi.string().required(),
+            book_id: Joi.string().optional(),
         }),
-        [Segments.HEADERS]: Joi.object().keys({
-            authorization: Joi.string().required(),
-        })
-        .unknown(),
     }),
 
     update: celebrate({

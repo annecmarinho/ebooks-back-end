@@ -1,3 +1,4 @@
+const { getBooks } = require("../controllers/BookController");
 const connection = require("../database/connection");
 
 
@@ -14,9 +15,15 @@ module.exports = {
       .where({book_id})
       .select("*")
       .first();
+      console.log(result);
     return result;
   },
  
+  async getAll(){
+    const result = await connection("book").select("*");
+    return result;
+  },
+
   async updateById(book_id, book){
     const result = await connection("book")
       .where({book_id})

@@ -26,13 +26,11 @@ routes.delete("/users/:user_id", UserValidator.delete, UserController.delete);
 //Books
 routes.post("/books", 
   BookValidator.create,
-  auth.authenticateToken,
   BookController.create);
 
-routes.get("/books/:book_id", 
-  BookValidator.getById, 
-  auth.authenticateToken, 
-  BookController.getById
+routes.get("/books/:book_id?", 
+  BookValidator.getBooks,  
+  BookController.getBooks
 );
 routes.put("/books/:book_id", 
   BookValidator.update, 

@@ -22,13 +22,19 @@ module.exports = {
 
         }
     },
-    async getById(request, response) {
+
+    async getBooks(request, response) {
         try {
             const { book_id } = request.params;
+            
+            let result;
+            if(book_id){
+                result = await BookModel.getById(book_id); 
+            } else {
+                result = await BookModel.getAll();
+            }
 
-            const result = await BookModel.getById(book_id);
-
-            return response.status(200).json({ book_id: result });
+            return response.status(200).json(result);
 
 
         } catch (error) {
