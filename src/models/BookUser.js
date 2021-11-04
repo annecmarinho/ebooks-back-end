@@ -17,10 +17,9 @@ module.exports = {
   },
 
   
-  async deleteById(book_id){
+  async deleteById(book_id, user_id){
     const result = await connection("book_user")
-      .where({user_id})
-      .where({book_id})
+      .where({user_id, book_id})
       .delete();
     return result;
   }

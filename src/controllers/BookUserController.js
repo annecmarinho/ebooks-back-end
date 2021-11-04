@@ -48,9 +48,9 @@ module.exports = {
     async delete(request, response) {
 
         try {
-            const { user_id } = request.params;
+            const { user_id, book_id } = request.params;
 
-            await BookModel.deleteById(user_id);
+            await BookUserModel.deleteById(book_id, user_id);
 
             return response.status(200).json({ notification: "BookUser deleted sucessfully" });
 

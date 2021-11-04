@@ -12,9 +12,10 @@ module.exports = {
 
   async getById(book_id){
     const result = await connection("book")
-      .where({book_id})
+      .where({"book.book_id": book_id})
       .select("*")
-      .first();
+      .first()
+      .leftJoin("book_user", "book.book_id", "book_user.book_id")
       console.log(result);
     return result;
   },

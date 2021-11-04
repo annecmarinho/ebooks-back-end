@@ -38,6 +38,7 @@ module.exports = {
     delete: celebrate({
         [Segments.PARAMS]: Joi.object().keys({
             user_id: Joi.string().required(),
+            book_id: Joi.string().required(),
         }),
         [Segments.HEADERS]: Joi.object().keys({
             authorization: Joi.string().required(),

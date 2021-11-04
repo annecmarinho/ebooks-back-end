@@ -47,17 +47,17 @@ routes.post("/bookUser",
   auth.authenticateToken,
   BookUserController.create);
 routes.get("/bookUser/:user_id",
-  BookUserValidator.create, 
+  BookUserValidator.getByUser, 
   auth.authenticateToken,
   BookUserController.getByUser);
 routes.put("/bookUser/:book_id", 
-  BookUserValidator.create,
+  BookUserValidator.update,
   auth.authenticateToken, 
   BookUserController.update);
-routes.delete("/bookUser/:book_id",
-  BookUserValidator.create,
+routes.delete("/bookUser/:book_id/:user_id",
+  BookUserValidator.delete,
   auth.authenticateToken,
-  BookController.delete);
+  BookUserController.delete);
 
 
 
