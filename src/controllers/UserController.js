@@ -19,7 +19,6 @@ module.exports = {
 
             const result = await UserModel.create(newUser);
 
-            newUser.firebase_id = uid;
 
             return response.status(200).json({ user_id: result });
 
